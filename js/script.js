@@ -36,36 +36,49 @@ let app = new Vue ({
         imageIndex : 0,
         
         timeScroll : setInterval(function () {
-            // console.log ('working');
             app.clickNext();
-            }, 3000)
+            }, 3000),
+        
+        
     },
 
     methods: {
         
         clickPrevious : function() {
+            clearInterval(this.timeScroll);    
             if(this.imageIndex <= 0)
             {
                 console.log('logt--')
                 this.imageIndex = this.image.length-1;
+                app.timeEvent();
             }else{
                 console.log('logf--')
                 this.imageIndex--;
+                app.timeEvent();
             }
         },
         clickNext : function() {
+            clearInterval(this.timeScroll);
             if(this.imageIndex >= this.image.length-1 )
             {
                 console.log('logt++')
                 this.imageIndex = 0;
+                app.timeEvent();
             }else{
                 console.log('logf++')
                 this.imageIndex++;
+                app.timeEvent();
             }
         },
         clickBar : function(index) {
             this.imageIndex = index;
         },
+        
+        timeEvent : function () {
+            this.timeScroll = setInterval(function () {
+                app.clickNext();
+                }, 3000)
+        }
     },
 });
 
@@ -76,3 +89,5 @@ let app = new Vue ({
 //     // console.log ('working');
 //     app.clickNext();
 //     }, 3000)
+
+    
