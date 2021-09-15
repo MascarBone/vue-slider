@@ -39,6 +39,10 @@
                         <div class="image-next">
                             <i @click="clickNext" class="fas fa-caret-right fa-5x"></i>
                         </div>
+                        <div class="image-bar">
+                            <i @click="clickBar(index)" v-for="(element, index) in image" :class="(index == imageIndex) ? 'active' : ''" class="fas fa-circle fa-2x"></i>
+                            <!-- Possibilità all'interno della i -> :style="(index == imageIndex) ? 'color:red' : '' " -->
+                        </div>
                     </div>
                     <!-- <div class="col flex-grow-0">
                         <div class="image-previous">
