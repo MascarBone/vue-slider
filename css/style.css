@@ -43,4 +43,11 @@ main {
 .image-previous i,
 .image-next i {
     padding: 0 10px;
+    cursor: pointer;
+}
+
+/* #########   HOVER   ######### */
+.image-previous:hover,
+.image-next:hover {
+    background-color: rgba(70, 102, 38, 0.566);
 }

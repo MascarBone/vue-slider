@@ -31,13 +31,13 @@
                 <div class="row gx-0">
                     <div class="col-12 d-flex position-relative">
                         <div class="image-previous">
-                            <i class="fas fa-caret-left fa-5x"></i>
+                            <i @click="clickPrevious" class="fas fa-caret-left fa-5x"></i>
                         </div>
                         <div class="image-now flex-grow-1">
-                            <img :src="image[1].source" :alt="image[0].alt">
+                            <img :src="image[imageIndex].source" :alt="image[imageIndex].alt">
                         </div>
                         <div class="image-next">
-                            <i class="fas fa-caret-right fa-5x"></i>
+                            <i @click="clickNext" class="fas fa-caret-right fa-5x"></i>
                         </div>
                     </div>
                     <!-- <div class="col flex-grow-0">

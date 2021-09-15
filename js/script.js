@@ -31,17 +31,32 @@ let app = new Vue ({
             source: 'https://via.placeholder.com/350x350',
             alt: 'Placeholder Image'
         },
-    ]},
+    ],    
 
     imageIndex : 0,
+    },
 
     methods: {
         
-        clickPrevious = function() {
-            
+        clickPrevious : function() {
+            if(this.imageIndex <= 0)
+            {
+                console.log('logt--')
+                this.imageIndex = this.image.length-1;
+            }else{
+                console.log('logf--')
+                this.imageIndex--;
+            }
         },
-        clickNext = function() {
-
+        clickNext : function() {
+            if(this.imageIndex >= this.image.length-1 )
+            {
+                console.log('logt++')
+                this.imageIndex = 0;
+            }else{
+                console.log('logf++')
+                this.imageIndex++;
+            }
         }
     }
 });
