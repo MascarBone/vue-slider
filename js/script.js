@@ -31,9 +31,14 @@ let app = new Vue ({
             source: 'https://www.gamelegends.it/wp-content/uploads/2021/01/Death-Stranding.jpg',
             alt: 'Awesome Death Stranding Image'
         },
-    ],    
+        ],    
 
-    imageIndex : 0,
+        imageIndex : 0,
+        
+        timeScroll : setInterval(function () {
+            // console.log ('working');
+            app.clickNext();
+            }, 3000)
     },
 
     methods: {
@@ -60,6 +65,14 @@ let app = new Vue ({
         },
         clickBar : function(index) {
             this.imageIndex = index;
-        }
-    }
+        },
+    },
 });
+
+
+// SetInterval che richiama l'oggetto Vue.js ed ogni 3 secondi
+// esegue il metodo 'clickNext()'
+// const timeScroll = setInterval(function () {
+//     // console.log ('working');
+//     app.clickNext();
+//     }, 3000)
