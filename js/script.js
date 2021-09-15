@@ -35,13 +35,9 @@ let app = new Vue ({
 
         imageIndex : 0,
         
-        // timeScroll : setInterval(function () {
-        //     app.clickNext();
-        //     }, 3000),
         timeScroll : setInterval(function () {
-            app.clickNext();
-            }, 3000),
-        
+        app.clickNext();
+        }, 3000),       
         
     },
 
