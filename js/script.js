@@ -35,9 +35,7 @@ let app = new Vue ({
 
         imageIndex : 0,
         
-        timeScroll : setInterval(function () {
-        app.clickNext();
-        }, 3000),       
+        timeScroll : '',
         
     },
 
@@ -49,12 +47,11 @@ let app = new Vue ({
             {
                 console.log('logt--')
                 this.imageIndex = this.images.length-1;
-                app.timeEvent();
             }else{
                 console.log('logf--')
                 this.imageIndex--;
-                app.timeEvent();
             }
+            this.timeEvent();
         },
         clickNext : function() {
             clearInterval(this.timeScroll);
@@ -62,31 +59,24 @@ let app = new Vue ({
             {
                 console.log('logt++')
                 this.imageIndex = 0;
-                app.timeEvent();
             }else{
                 console.log('logf++')
                 this.imageIndex++;
-                app.timeEvent();
-            }
+            }            
+            this.timeEvent();
         },
         clickBar : function(index) {
             this.imageIndex = index;
         },
         
         timeEvent : function () {
-            this.timeScroll = setInterval(function () {
-                app.clickNext();
-                }, 3000)
+            this.timeScroll = setInterval( () => {
+                this.clickNext();
+                }, 3000);
         }
     },
+
+    created : function () {
+        this.timeEvent();
+    },
 });
-
-
-// SetInterval che richiama l'oggetto Vue.js ed ogni 3 secondi
-// esegue il metodo 'clickNext()'
-// const timeScroll = setInterval(function () {
-//     // console.log ('working');
-//     app.clickNext();
-//     }, 3000)
-
-    
