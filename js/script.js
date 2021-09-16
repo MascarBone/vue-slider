@@ -2,7 +2,7 @@ let app = new Vue ({
    el: '#app',
    
    data: {
-       image: [
+       images: [
         {
             source: 'https://www.taxidrivers.it/wp-content/uploads/2017/02/john-wick-2.jpg',
             alt: 'Awesome Keanu Rives Image'
@@ -48,7 +48,7 @@ let app = new Vue ({
             if(this.imageIndex <= 0)
             {
                 console.log('logt--')
-                this.imageIndex = this.image.length-1;
+                this.imageIndex = this.images.length-1;
                 app.timeEvent();
             }else{
                 console.log('logf--')
@@ -58,7 +58,7 @@ let app = new Vue ({
         },
         clickNext : function() {
             clearInterval(this.timeScroll);
-            if(this.imageIndex >= this.image.length-1 )
+            if(this.imageIndex >= this.images.length-1 )
             {
                 console.log('logt++')
                 this.imageIndex = 0;
